@@ -44,10 +44,41 @@ Segue abaixo roteiro de testes/cenários no BDD: (Adicionar histórias)
       </a>
     </td>
   </tr>
-<div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="tomas-barra" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/kassia-es/?trk=profile-badge">Linkedin: Kassia</a></div>
+<div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="kassia-es" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/kassia-es/?trk=profile-badge">Linkedin: Kassia</a></div>
 </table>
-              
-Caso surjam demais dúvidas nos mantemos à disposição.
+
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/DuAlexandre">
+        <img src="https://avatars.githubusercontent.com/u/95940707?v=4" width="100px;" alt="Foto de DuAlexandre no GitHub"/><br>
+        <sub>
+          <b>DuAlexandre</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+<div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="eduardo-alexandre025" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/eduardo-alexandre025/?trk=profile-badge">Linkedin: Eduardo Alexandre</a></div>
+</table>
+          
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/WandembergSS">
+        <img src="https://avatars.githubusercontent.com/u/86700373?v=4" width="100px;" alt="Foto de WandembergSS no GitHub"/><br>
+        <sub>
+          <b>WandembergSS</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+<div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="wss2021" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/wss2021/?trk=profile-badge">Linkedin: Wandemberg</a></div>
+</table>
+
+
+
+Caso surjam demais dúvidas, nos mantemos à disposição.
 
 Um abraço = )
 ## :dart: Projeto concluido 
