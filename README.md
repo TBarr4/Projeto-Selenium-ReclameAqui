@@ -13,16 +13,6 @@ Este projeto tem o intuito de demonstrar as nossas habilidades adquiridas em aut
 Após o projeto ser clonado em sua maquina, abra ele com o Visual Code Studio ou semelhante e execute os cenários informados abaixo.
 
 ## :memo: Roteiro de testes utilizado/BDD
-Segue abaixo roteiro de histórias e testes/cenários no BDD:
-
-workbranch-HG6R1:
-
-workbranch-HG6R2:
-
-workbranch-HG6R3:
-
-workbranch-HG6R4:
-
 
 ## :handshake: Realizado por
 <table>
