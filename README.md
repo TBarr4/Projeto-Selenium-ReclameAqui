@@ -13,9 +13,6 @@ Este projeto tem o intuito de demonstrar as nossas habilidades adquiridas em aut
 Após o projeto ser clonado em sua maquina, abra ele com o Visual Code Studio ou semelhante e execute os cenários informados abaixo.
 
 ## :memo: Roteiro de testes utilizado/BDD
-Segue abaixo roteiro de testes/cenários no BDD: (Adicionar histórias)
-
-
 
 ## :handshake: Realizado por
 <table>
