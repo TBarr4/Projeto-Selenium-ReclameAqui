@@ -1,5 +1,6 @@
 package ada.example.steps;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
@@ -37,6 +38,11 @@ public class DetectorStepsDefinitions {
         driver = new ChromeDriver(options);
     }
 
+    @After
+         public void tearDown() {
+         driver.quit();
+    }
+
     @Dado("que o usuário está na página inicial")
     public void queOUsuárioEstáNaPáginaInicial() {
         driver.get(baseUrl);
@@ -51,56 +57,52 @@ public class DetectorStepsDefinitions {
         //Assertions.assertEquals(driver.getCurrentUrl(), "https://www.reclameaqui.com.br/detector-site/");
         String mensagem = driver.findElement(By.className("go3852279214")).getText();
         Assertions.assertEquals( mensagem, "Cole aqui o link da loja ou site e descubra se ele é confiável");
+
     }
 
-
-
-    @E("digitar a url de um site no campo")
-    public void digitarAUrlDeUmSiteNoCampo() {
+    @E("digitar a url {string} de um site no campo")
+    public void digitarAUrlDeUmSiteNoCampo(String site) throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(By.className("dZYaIm")).sendKeys(site);
     }
 
     @E("clicar no botão Analisar site")
-    public void clicarNoBotãoAnalisarSite() {
+    public void clicarNoBotãoAnalisarSite() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(By.className("go3502579223")).click();
     }
 
     @Entao("aparece a mensagem {string}")
-    public void apareceAMensagemNãoEncontramosInformaçõesSuspeitas() {
+    public void apareceAMensagemNãoEncontramosInformaçõesSuspeitas(String texto) throws InterruptedException {
+        Thread.sleep(4000);
+        String mensagem = driver.findElement(By.className("go1086141068")).getText();
+        Assertions.assertTrue(mensagem.contains(texto));
     }
 
+
     @Entao("deve conter os campos registro de site, origem de site, e análise do endereço de site")
-    public void deveConterOsCamposRegistroDeSiteOrigemDeSiteEAnáliseDoEndereçoDeSite() {
+    public void deveConterOsCamposRegistroDeSiteOrigemDeSiteEAnáliseDoEndereçoDeSite() throws InterruptedException {
+        Thread.sleep(4000);
+        boolean registroDeSite = driver.findElement(By.className("go2716339389")).isDisplayed();
+        Assertions.assertTrue(registroDeSite);
+        boolean origemDoSite = driver.findElement(By.className("go2716339389")).isDisplayed();
+        Assertions.assertTrue(origemDoSite);
+        boolean analiseDoSite = driver.findElement(By.className("go2716339389")).isDisplayed();
+        Assertions.assertTrue(analiseDoSite);
+
+
     }
 
     @Entao("aparece a o botão de Analisar outro site")
-    public void apareceAOBotãoDeAnalisarOutroSite() {
+    public void apareceAOBotãoDeAnalisarOutroSite() throws InterruptedException {
+        Thread.sleep(4000);
+        boolean novaPesquisa = driver.findElement(By.className("go3775204054")).isDisplayed();
+        Assertions.assertTrue(novaPesquisa);
     }
+
+
+
 }
 
 
 
-
-
-
-/**
-
-    @E("digitar a url de um site no campo")
-    public void digitarAUrlDeUmSiteNoCampo() {
-    }
-    @E("clicar no botão Analisar site")
-    public void clicarNoBotãoAnalisarSite() {
-    }
-    @Entao("aparece a mensagem {string}")
-    public void apareceAMensagemNãoEncontramosInformaçõesSuspeitas() {
-    }
-
-    @Entao("aparece a explicação de como realizar a validação")
-    public void apareceAExplicaçãoDeComoRealizarAValidação() {
-    }
-
-    @Entao("deve conter os campos registro de site, origem de site, e análise do endereço de site")
-    public void deveConterOsCamposRegistroDeSiteOrigemDeSiteEAnáliseDoEndereçoDeSite() {
-    }
-
-
-
-*/
