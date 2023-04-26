@@ -6,12 +6,14 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 
 /**
@@ -34,13 +36,13 @@ public class DetectorStepsDefinitions {
     public void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        WebDriverManager.chromedriver().setup();
+
         driver = new ChromeDriver(options);
     }
 
     @After
          public void tearDown() {
-         driver.quit();
+        driver.quit();
     }
 
     @Dado("que o usuário está na página inicial")
@@ -53,7 +55,8 @@ public class DetectorStepsDefinitions {
     }
 
     @Entao("aparece a explicação de como realizar a validação")
-    public void apareceAExplicaçãoDeComoRealizarAValidação() {
+    public void apareceAExplicaçãoDeComoRealizarAValidação() throws InterruptedException {
+        Thread.sleep(2000);
         //Assertions.assertEquals(driver.getCurrentUrl(), "https://www.reclameaqui.com.br/detector-site/");
         String mensagem = driver.findElement(By.className("go3852279214")).getText();
         Assertions.assertEquals( mensagem, "Cole aqui o link da loja ou site e descubra se ele é confiável");
@@ -82,7 +85,7 @@ public class DetectorStepsDefinitions {
 
     @Entao("deve conter os campos registro de site, origem de site, e análise do endereço de site")
     public void deveConterOsCamposRegistroDeSiteOrigemDeSiteEAnáliseDoEndereçoDeSite() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         boolean registroDeSite = driver.findElement(By.className("go2716339389")).isDisplayed();
         Assertions.assertTrue(registroDeSite);
         boolean origemDoSite = driver.findElement(By.className("go2716339389")).isDisplayed();
@@ -95,11 +98,16 @@ public class DetectorStepsDefinitions {
 
     @Entao("aparece a o botão de Analisar outro site")
     public void apareceAOBotãoDeAnalisarOutroSite() throws InterruptedException {
-        Thread.sleep(4000);
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(By.className("go3775204054")));
         boolean novaPesquisa = driver.findElement(By.className("go3775204054")).isDisplayed();
         Assertions.assertTrue(novaPesquisa);
     }
 
+    @E("digitar a url {string}")
+    public void digitarAUrlUrl(String site) throws InterruptedException {
+        Thread.sleep(5000);
+        driver.findElement(By.className("dZYaIm")).sendKeys(site);
+    }
 
 
 }
