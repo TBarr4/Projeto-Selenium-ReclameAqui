@@ -1,5 +1,8 @@
 package ada.example.steps;
 
+import ada.example.Hooks;
+import org.openqa.selenium.WebDriver;
+
 /**
  * Comparação de empresas
  * Como usuário, mesmo que não esteja logado, quero comparar empresas, para saber qual é mais confiável.
@@ -10,4 +13,9 @@ package ada.example.steps;
  */
 
 public class ComparacaoStepsDefinitions {
+
+    WebDriver driver = Hooks.getDriver();
+    String baseUrl = "https://www.reclameaqui.com.br/";
+
+
 }
