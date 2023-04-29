@@ -1,7 +1,6 @@
 package ada.example.steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import ada.example.Hooks;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
@@ -9,8 +8,6 @@ import io.cucumber.java.pt.Quando;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
@@ -29,21 +26,9 @@ import java.time.Duration;
 
 public class DetectorStepsDefinitions {
 
-    WebDriver driver;
+    WebDriver driver = Hooks.getDriver();
     String baseUrl = "https://www.reclameaqui.com.br/";
 
-    @Before
-    public void setup(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-
-        driver = new ChromeDriver(options);
-    }
-
-    @After
-         public void tearDown() {
-        driver.quit();
-    }
 
     @Dado("que o usuário está na página inicial")
     public void queOUsuárioEstáNaPáginaInicial() {
@@ -57,7 +42,7 @@ public class DetectorStepsDefinitions {
     @Entao("aparece a explicação de como realizar a validação")
     public void apareceAExplicaçãoDeComoRealizarAValidação() throws InterruptedException {
         Thread.sleep(2000);
-        //Assertions.assertEquals(driver.getCurrentUrl(), "https://www.reclameaqui.com.br/detector-site/");
+
         String mensagem = driver.findElement(By.className("go3852279214")).getText();
         Assertions.assertEquals( mensagem, "Cole aqui o link da loja ou site e descubra se ele é confiável");
 
