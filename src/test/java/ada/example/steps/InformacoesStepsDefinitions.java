@@ -1,5 +1,8 @@
 package ada.example.steps;
 
+import ada.example.Hooks;
+import org.openqa.selenium.WebDriver;
+
 /**
  * HG6R4 - Informações de empresas
  * Como usuário, mesmo que não esteja logado, quero visualizar informações detalhadas sobre a empresa, para avaliar a empresa.
@@ -12,5 +15,7 @@ package ada.example.steps;
 
 public class InformacoesStepsDefinitions {
 
+    WebDriver driver = Hooks.getDriver();
+    String baseUrl = "https://www.reclameaqui.com.br/";
 
 }
